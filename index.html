@@ -3,32 +3,54 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/responsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script defer src="./script.js"></script>
     <title>Tvorba webových stránek</title>
 </head>
 
 <body>
     <!-- Telo dokumentu -->
-    <header>
+    <header id="header">
         <div class="wrapper">
             <h1 class="header-title">
                 <a href="#"> <span>ITW</span> tvorba webových stránek </a>
             </h1>
         </div>
-        <div class="header-nav-bg">
+    </header>
+    <nav id="nav">
+        <div id="header-nav-bg">
             <div class="wrapper">
                 <ul class="header-nav">
-                    <li><a href="#about">o předmětu</a></li>
-                    <li><a href="#lectures">přednášky</a></li>
-                    <li><a href="#results">výsledky</a></li>
-                    <li><a href="#excersices">cvičení</a></li>
-                    <li><a href="#contact">kontakt</a></li>
-                    <li><a href="#subjects">předměty</a></li>
+                </ul>
+            </div>
+            <div id="header-nav-hamburger" class="navigation_hamburger--inactive">
+                <ul class="header-nav-hamburger-list">
+                    <li id="op-about">
+                        <div class="wrapper"><a href="#"><i class="fa-solid fa-circle-info"></i>O předmětu</a></div>
+                    </li>
+                    <li id="op-lectures">
+                        <div class="wrapper"><a href="#"><i class="fa-solid fa-tv"></i>Přednášky</a></div>
+                    </li>
+                    <li id="op-results">
+                        <div class="wrapper"><a href="#"><i class="fa-solid fa-face-grin-beam-sweat"></i>Výsledky</a></div>
+                    </li>
+                    <li id="op-excersices">
+                        <div class="wrapper"><a href="#"><i class="fa-solid fa-hammer"></i>Cvičení</a></div>
+                    </li>
+                    <li id="op-contact">
+                        <div class="wrapper"><a href="#"><i class="fa-solid fa-envelope"></i>Kontakt</a></div>
+                    </li>
+                    <li id="op-footer">
+                        <div class="wrapper"><a href="#"><i class="fa-solid fa-code-branch"></i>Související</a></div>
+                    </li>
                 </ul>
             </div>
         </div>
-    </header>
+    </nav>
     <section id="about">
         <div class="wrapper">
             <h2 class="title">O předmětu ITW - tvorba webových stránek</h2>
@@ -106,7 +128,7 @@
               </div>
             </div>
           </div>
-          <section id="results">
+          <section id="results" style="overflow-x:auto;">
             <h2 class="title">Přehled výsledků</h2>
             <table>
               <tr>
@@ -206,7 +228,7 @@
         </aside>
      
     </main>
-    <footer>
+    <footer id = "footer">
       <div class="wrapper">
         <section id="contact">
           <h2 class="title">Kontaktujte nás</h2>
