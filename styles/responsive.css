@@ -1,0 +1,143 @@
+:root {
+    --margins: 5%;
+}
+
+@media screen and (max-width: 576px) {
+    .wrapper {
+        width: 90%;
+    }
+    .header-nav a {
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    .lectures-content {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .lectures-item img {
+        width: 20%;
+        height: 20%;
+    }
+    #excersices {
+        padding: 50px 0 10px 0;
+        background: linear-gradient(180deg, rgb(233, 233, 233), white 90%);
+    }
+    footer {
+        padding: 30px 0;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width:768px) {
+    .wrapper {
+        width: 95%;
+    }
+    .header-nav a {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    .header-title {
+        margin-bottom: 40px;
+    }
+    .lectures-content {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .lectures-item img {
+        width: 20%;
+        height: 20%;
+    }
+    #excersices {
+        padding: 50px 0 10px 0;
+        background: linear-gradient(180deg, rgb(233, 233, 233), white 90%);
+    }
+    footer {
+        padding: 30px 0;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width:992px) {
+    .wrapper {
+        width: 95%;
+    }
+    .lectures-content {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .lectures-content img {
+        width: 15%;
+    }
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .header-nav li {
+        margin-right: 20px;
+    }
+    footer {
+        padding: 35px 0;
+    }
+    footer .wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width:1200px) {
+    .wrapper {
+        width: 95%;
+        max-width: 1200px;
+    }
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .header-nav li {
+        margin-right: 20px;
+    }
+    footer {
+        padding: 35px 0;
+    }
+    footer .wrapper {
+        display: flex;
+    }
+    footer section {
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .wrapper {
+        padding: 0 var(--margins);
+        max-width: 1400px;
+    }
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .header-nav li {
+        margin-right: 20px;
+    }
+    #excersices {
+        padding-right: var(--margins);
+    }
+    #lectures {
+        padding-left: var(--margins);
+    }
+    footer {
+        padding: 35px 0;
+    }
+    footer .wrapper {
+        display: flex;
+    }
+    footer section {
+        padding-right: 100px;
+    }
+}
