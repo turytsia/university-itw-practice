@@ -1,8 +1,10 @@
 # Result of ITW practice
 Learn more about this course you can [here](https://www.fit.vut.cz/study/course/ITW/.cs).
 
+## PC version
 ![result](./i/result.png)
-![result](./i/result_mobile.png)
+
+Mobile version is available in a repo.
 
 ### Results
 
