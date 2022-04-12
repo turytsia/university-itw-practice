@@ -22,13 +22,12 @@ $(document).ready(() => {
         Kontakt: "footer",
         Související: "footer",
     };
-
-    $('op-about').click(() => scroll_handler.bind(null, document.getElementById("about")))
-    $("op-lectures").click(() => scroll_handler.bind(null, document.getElementById("about")))
-    $("op-results").click(() => scroll_handler.bind(null, document.getElementById("about")))
-    $("op-excersices").click(() => scroll_handler.bind(null, document.getElementById("about")))
-    $("op-contact").click(() => scroll_handler.bind(null, document.getElementById("about")))
-    $("op-footer").click(() => scroll_handler.bind(null, document.getElementById("about")))
+    $('#op-about').click(() => scroll_handler(document.getElementById("about")))
+    $("#op-lectures").click(() => scroll_handler(document.getElementById("lectures")))
+    $("#op-results").click(() => scroll_handler(document.getElementById("results")))
+    $("#op-excersices").click(() => scroll_handler(document.getElementById("excersices")))
+    $("#op-contact").click(() => scroll_handler(document.getElementById("footer")))
+    $("#op-footer").click(() => scroll_handler(document.getElementById("footer")))
 
     function create_item(inner_html, show_text = false) {
         return `
