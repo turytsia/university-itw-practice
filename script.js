@@ -1,95 +1,110 @@
-const navigation = document.getElementById('header-nav-bg')
-const navigation_list = navigation.firstElementChild.firstElementChild
-const navigation_hamburger = document.getElementById('header-nav-hamburger')
+$(document).ready(() => {
+    const navigation = document.getElementById("header-nav-bg");
+    const navigation_list = navigation.firstElementChild.firstElementChild;
+    const navigation_hamburger = document.getElementById("header-nav-hamburger");
     // icons
-const icons = {
-    'Index': 'fa-solid fa-house',
-    'O předmětu': 'fa-solid fa-circle-info',
-    'Přednášky': 'fa-solid fa-tv',
-    'Výsledky': 'fa-solid fa-face-grin-beam-sweat',
-    'Cvičení': 'fa-solid fa-hammer',
-    'Kontakt': 'fa-solid fa-envelope',
-    'Související': 'fa-solid fa-code-branch',
-    'bars': 'fa-solid fa-bars'
-}
+    const icons = {
+        Index: "fa-solid fa-house",
+        "O předmětu": "fa-solid fa-circle-info",
+        Přednášky: "fa-solid fa-tv",
+        Výsledky: "fa-solid fa-face-grin-beam-sweat",
+        Cvičení: "fa-solid fa-hammer",
+        Kontakt: "fa-solid fa-envelope",
+        Související: "fa-solid fa-code-branch",
+        bars: "fa-solid fa-bars",
+    };
 
-//<li><a href="#about">o předmětu</a></li>
+    const id = {
+        "O předmětu": "about",
+        Přednášky: "lectures",
+        Výsledky: "results",
+        Cvičení: "excersices",
+        Kontakt: "footer",
+        Související: "footer",
+    };
 
-const about = document.getElementById('op-about')
-const lectures = document.getElementById('op-lectures')
-const results = document.getElementById('op-results')
-const excersices = document.getElementById('op-excersices')
-const contact = document.getElementById('op-contact')
-const footer = document.getElementById('op-footer')
+    $('op-about').click(() => scroll_handler.bind(null, document.getElementById("about")))
+    $("op-lectures").click(() => scroll_handler.bind(null, document.getElementById("about")))
+    $("op-results").click(() => scroll_handler.bind(null, document.getElementById("about")))
+    $("op-excersices").click(() => scroll_handler.bind(null, document.getElementById("about")))
+    $("op-contact").click(() => scroll_handler.bind(null, document.getElementById("about")))
+    $("op-footer").click(() => scroll_handler.bind(null, document.getElementById("about")))
 
-about.addEventListener('click', scroll_handler.bind(null, document.getElementById('about')))
-lectures.addEventListener('click', scroll_handler.bind(null, document.getElementById('lectures')))
-results.addEventListener('click', scroll_handler.bind(null, document.getElementById('results')))
-excersices.addEventListener('click', scroll_handler.bind(null, document.getElementById('excersices')))
-contact.addEventListener('click', scroll_handler.bind(null, document.getElementById('footer')))
-footer.addEventListener('click', scroll_handler.bind(null, document.getElementById('footer')))
-
-function create_item(inner_html, target, show_text = false) {
-    const navigation_item = document.createElement('li')
-    navigation_item.addEventListener('click', scroll_handler.bind(null, document.getElementById(target)))
-    const navigation_link = document.createElement('a')
-    const icon = document.createElement('i')
-    icon.className = icons[inner_html]
-    if (show_text)
-        navigation_link.innerHTML = inner_html
-    navigation_link.prepend(icon)
-    navigation_item.appendChild(navigation_link)
-
-    return navigation_item
-}
-
-function remove_children(element) {
-    let first_child = element.firstElementChild
-    while (first_child) {
-        first_child.remove()
-        first_child = element.firstElementChild
+    function create_item(inner_html, show_text = false) {
+        return `
+        <li class = "option">
+            <a>
+                <i class = "${icons[inner_html]}"></i>
+                <span>${show_text ? inner_html : ""}</span>
+                <p class = "hover-text">${inner_html}</p>
+            </a>
+        </li>
+        `;
     }
-}
 
-function scroll_handler(target) {
-    if (target) {
-        navigation_hamburger.classList.remove('navigation_hamburger--active')
-        target.scrollIntoView({
-            behavior: "smooth"
-        });
+    function remove_children(element) {
+        let first_child = element.firstElementChild;
+        while (first_child) {
+            first_child.remove();
+            first_child = element.firstElementChild;
+        }
     }
-}
 
-function resize_handler() {
-    remove_children(navigation_list)
-    if (window.innerWidth < 576) {
-        navigation_list.appendChild(create_item('Index', 'header', true))
+    function scroll_handler(target) {
+        if (target) {
+            navigation_hamburger.classList.remove("navigation_hamburger--active");
+            target.scrollIntoView({
+                behavior: "smooth",
+            });
+        }
+    }
+
+    function resize_handler() {
+        remove_children(navigation_list);
+        if (window.innerWidth < 576) {
+            $(navigation_list).append(create_item("Index", "header", true));
             //bars
-        const bars = document.createElement('i')
-        bars.className = icons['bars']
-        navigation_list.appendChild(bars)
-        bars.addEventListener('click', () => {
-            navigation_hamburger.classList.toggle('navigation_hamburger--active')
-        })
-    } else if (window.innerWidth >= 576 && window.innerWidth <= 992) {
-        navigation_list.appendChild(create_item("Index", 'header', true));
-        navigation_list.appendChild(create_item("O předmětu", 'about'));
-        navigation_list.appendChild(create_item("Přednášky", 'lectures'));
-        navigation_list.appendChild(create_item("Výsledky", 'results'));
-        navigation_list.appendChild(create_item("Cvičení", 'excersices'));
-        navigation_list.appendChild(create_item("Kontakt", 'footer'));
-        navigation_list.appendChild(create_item("Související", 'footer'));
-    } else {
-        navigation_list.appendChild(create_item("Index", 'header', true));
-        navigation_list.appendChild(create_item("O předmětu", 'about', true));
-        navigation_list.appendChild(create_item("Přednášky", 'lectures', true));
-        navigation_list.appendChild(create_item("Výsledky", 'results', true));
-        navigation_list.appendChild(create_item("Cvičení", 'excersices', true));
-        navigation_list.appendChild(create_item("Kontakt", 'footer', true));
-        navigation_list.appendChild(create_item("Související", 'footer', true));
+
+            $(navigation_list)
+                .append(`<i class = "${icons["bars"]}"></i>`)
+                .click(() => {
+                    navigation_hamburger.classList.toggle("navigation_hamburger--active");
+                });
+        } else if (window.innerWidth >= 576 && window.innerWidth <= 992) {
+            //.click(scroll_handler.bind(null, document.getElementById('about')))
+            $(navigation_list)
+                .append($(create_item("Index", true)))
+                .bind(null, document.getElementById("header"));
+            for (const key in id) {
+                $(navigation_list).append(
+                    $(create_item(key)).click(
+                        scroll_handler.bind(null, document.getElementById(id[key]))
+                    )
+                );
+            }
+
+            $(".option")
+                .mouseenter((e) => {
+                    $(e.target).find("p.hover-text").css("display", "inline-block");
+                })
+                .mouseleave((e) => {
+                    $(e.target).find("p.hover-text").css("display", "none");
+                });
+        } else {
+            $(navigation_list)
+                .append($(create_item("Index", true)))
+                .bind(null, document.getElementById("header"));
+            for (const key in id) {
+                $(navigation_list).append(
+                    $(create_item(key, true)).click(
+                        scroll_handler.bind(null, document.getElementById(id[key]))
+                    )
+                );
+            }
+        }
     }
-}
 
-resize_handler()
+    resize_handler();
 
-window.addEventListener('resize', resize_handler)
+    window.addEventListener("resize", resize_handler);
+});

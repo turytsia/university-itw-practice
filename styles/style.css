@@ -290,3 +290,32 @@ i[class*='fa-'] {
     position: sticky;
     top: 0;
 }
+
+.option {
+    position: relative;
+}
+
+.hover-text {
+    position: absolute;
+    right: 0;
+    bottom: -160%;
+    color: white;
+    padding: 10px;
+    display: none;
+    opacity: 1;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.hover-text::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: .8;
+    z-index: -1;
+    border-radius: 6px;
+}
